@@ -1,0 +1,16 @@
+extends ../layouts/user.layout.pug
+block body
+
+	if errors
+		each err in errors
+			.alert.alert-danger(role="alert")= err
+			
+	form(action="/users/login", method="POST")
+		.form-group
+			label(for='email') Email address
+			input.form-control(type='email', aria-describedby='emailHelp', placeholder='Enter email', name="email")
+		.form-group
+			label(for='email') Password
+			input.form-control(name='pw', type='password', placeholder='Password')
+		.form-group.form-check
+			button.btn.btn-primary(type='submit') Login
